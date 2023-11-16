@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 const baseRouter = express.Router();
 
 baseRouter.get('/greeting', (req, res) => {
-    return res.send("Hello World!");
+    return res.send('Hello world!');
 });
 
 baseRouter.post('/add', (req, res) => {
