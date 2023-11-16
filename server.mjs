@@ -24,7 +24,7 @@ baseRouter.get('/greeting', (req, res) => {
 
 baseRouter.post('/add', (req, res) => {
     const { first, second } = req.body;
-    res.json({ "result": first + second });
+    return res.json({ "result": first + second });
     // console.log(req.body);
     //  const { first, second } = req.body;
 
@@ -63,7 +63,7 @@ baseRouter.post('/subtract', (req, res) => {
     //     return res.status(400).json({ error: 'Invalid input. Both first and second should be valid numbers.' });
     // }
     const { first, second } = req.body;
-    res.json({ "result": first - second });
+    return res.json({ "result": first - second });
     //res.json({ "": null });
 });
 
