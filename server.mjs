@@ -24,13 +24,13 @@ baseRouter.get('/greeting', (req, res) => {
 
 baseRouter.post('/add', (req, res) => {
     const { first, second } = req.body;
-    return res.json({ "result": first + second });
+    
     // console.log(req.body);
     //  const { first, second } = req.body;
 
-    // const num1 = parseFloat(first);
-    // const num2 = parseFloat(second);
-
+    const num1 = parseFloat(first);
+    const num2 = parseFloat(second);
+    return res.json({ "result": num1 + num2 });
     // if (!isNaN(num1) && !isNaN(num2)) {
     //     const result = num1 + num2;
     //     return res.status(200).json({ result });
@@ -53,8 +53,8 @@ baseRouter.post('/add', (req, res) => {
 baseRouter.post('/subtract', (req, res) => {
     // const { first, second } = req.body;
 
-    // const num1 = parseFloat(first);
-    // const num2 = parseFloat(second);
+    const num1 = parseFloat(first);
+    const num2 = parseFloat(second);
 
     // if (!isNaN(num1) && !isNaN(num2)) {
     //     const result = num1 - num2;
@@ -63,7 +63,7 @@ baseRouter.post('/subtract', (req, res) => {
     //     return res.status(400).json({ error: 'Invalid input. Both first and second should be valid numbers.' });
     // }
     const { first, second } = req.body;
-    return res.json({ "result": first - second });
+    return res.json({ "result": num1 - num2});
     //res.json({ "": null });
 });
 
