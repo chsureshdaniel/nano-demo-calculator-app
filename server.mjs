@@ -24,20 +24,42 @@ baseRouter.get('/greeting', (req, res) => {
 
 baseRouter.post('/add', (req, res) => {
     const { first, second } = req.body;
-    
-    // console.log(req.body);
-    //  const { first, second } = req.body;
 
-    //const num1 = parseFloat(first);
-    //const num2 = parseFloat(second);
-    return res.json({ "result": first + second });
-    // if (!isNaN(num1) && !isNaN(num2)) {
-    //     const result = num1 + num2;
-    //     return res.status(200).json({ result });
-    // } else {
-    //     return res.status(400).json({ error: 'Invalid input. Both first and second should be valid numbers.' });
-    // }
+    if (typeof first === 'number' && typeof second === 'number') {
+        const result = first + second;
+        return res.status(200).json({ result });
+    } else {
+        return res.status(400).json({ error: 'Invalid input. Both first and second should be numbers.' });
+    }
 });
+
+baseRouter.post('/add', (req, res) => {
+    const { first, second } = req.body;
+
+    if (typeof first === 'number' && typeof second === 'number') {
+        const result = first - second;
+        return res.status(200).json({ result });
+    } else {
+        return res.status(400).json({ error: 'Invalid input. Both first and second should be numbers.' });
+    }
+});
+
+// baseRouter.post('/add', (req, res) => {
+//     const { first, second } = req.body;
+    
+//     // console.log(req.body);
+//     //  const { first, second } = req.body;
+
+//     //const num1 = parseFloat(first);
+//     //const num2 = parseFloat(second);
+//     return res.json({ "result": first + second });
+//     // if (!isNaN(num1) && !isNaN(num2)) {
+//     //     const result = num1 + num2;
+//     //     return res.status(200).json({ result });
+//     // } else {
+//     //     return res.status(400).json({ error: 'Invalid input. Both first and second should be valid numbers.' });
+//     // }
+// });
 // baseRouter.post('/add1', (req, res) => {
 //     req.
 //     //res.json({ "": null });
@@ -50,22 +72,22 @@ baseRouter.post('/add', (req, res) => {
 //     res.sendFile(_dirname+"/index_sub.html");
 // });
 
-baseRouter.post('/subtract', (req, res) => {
-    // const { first, second } = req.body;
+// baseRouter.post('/subtract', (req, res) => {
+//     // const { first, second } = req.body;
 
-    //const num1 = parseFloat(first);
-    //const num2 = parseFloat(second);
+//     //const num1 = parseFloat(first);
+//     //const num2 = parseFloat(second);
 
-    // if (!isNaN(num1) && !isNaN(num2)) {
-    //     const result = num1 - num2;
-    //     return res.status(200).json({ result });
-    // } else {
-    //     return res.status(400).json({ error: 'Invalid input. Both first and second should be valid numbers.' });
-    // }
-    const { first, second } = req.body;
-    return res.json({ "result": first - second});
-    //res.json({ "": null });
-});
+//     // if (!isNaN(num1) && !isNaN(num2)) {
+//     //     const result = num1 - num2;
+//     //     return res.status(200).json({ result });
+//     // } else {
+//     //     return res.status(400).json({ error: 'Invalid input. Both first and second should be valid numbers.' });
+//     // }
+//     const { first, second } = req.body;
+//     return res.json({ "result": first - second});
+//     //res.json({ "": null });
+// });
 
 app.use(baseUrl, baseRouter);
 app.listen(PORT, () => {
